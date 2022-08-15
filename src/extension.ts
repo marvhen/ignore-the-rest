@@ -3,12 +3,12 @@ import * as vscode from 'vscode';
 const textEditorMap = new Map<vscode.TextEditor, number>();
 
 export function activate(context: vscode.ExtensionContext) {
-	
+
 	let disposable = vscode.commands.registerCommand('ignore-the-rest.run', () => {
-		
+
 		const te = vscode.window.activeTextEditor;
 		if (!!te) {
-			let linesLastCommented = textEditorMap.get(te);			
+			let linesLastCommented = textEditorMap.get(te);
 			if (linesLastCommented === undefined) {
 				linesLastCommented = -1;
 				textEditorMap.set(te, linesLastCommented);
@@ -37,7 +37,7 @@ function ignoreTheRest(te: vscode.TextEditor) {
 
 	const start = new vscode.Position(selectionLineClosestToEnd + 1, 0);
 	const end = new vscode.Position(te.document.lineCount, 0);
-	const selection = new vscode.Selection(start, end);
+	const selection = new vscode.Selection(end, start);
 	textEditorMap.set(te, end.line - start.line);
 	te.selections = [selection];
 	vscode.commands.executeCommand('editor.action.commentLine');
@@ -48,7 +48,7 @@ function unIgnoreTheRest(te: vscode.TextEditor, linesLastCommented: number) {
 	const selectionsToRestore = te.selections;
 	const start = new vscode.Position(te.document.lineCount - linesLastCommented, 0);
 	const end = new vscode.Position(te.document.lineCount, 0);
-	const selection = new vscode.Selection(start, end);
+	const selection = new vscode.Selection(end, start);
 	textEditorMap.set(te, -1);
 	te.selections = [selection];
 	vscode.commands.executeCommand('editor.action.commentLine');
