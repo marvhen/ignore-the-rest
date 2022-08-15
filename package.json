@@ -3,6 +3,9 @@
   "displayName": "Ignore the Rest",
   "description": "Quickly comment out all code from the cursor to the end of the file.",
   "version": "1.0.0",
+  "publisher": "marvhen",
+  "license": "MIT",
+  "icon": "img/logo.png", 
   "engines": {
     "vscode": "^1.70.0"
   },
@@ -27,6 +30,10 @@
         "when": "editorTextFocus"
       }
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marvhen/ignore-the-rest"
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
