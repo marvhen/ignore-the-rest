@@ -2,7 +2,7 @@
   "name": "ignore-the-rest",
   "displayName": "Ignore the Rest",
   "description": "Quickly comment out all code from the cursor to the end of the file.",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "publisher": "marvhen",
   "license": "MIT",
   "icon": "img/logo.png",
@@ -17,6 +17,16 @@
   ],
   "main": "./dist/extension",
   "contributes": {
+    "configuration": {
+      "title": "Ignore the Rest",
+      "properties": {
+        "ignore-the-rest.uncommentCurrentLinesBeforeIgnoringTheRest": {
+          "type":"boolean",
+          "default": "false",
+          "description": "If set, the currently selected lines that will first be uncommented (as long as they are contiguous to 'the rest'), thus allowing you to easily switch between commented code and 'the rest'"
+        }
+      }
+    },
     "commands": [
       {
         "command": "ignore-the-rest.run",

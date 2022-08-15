@@ -4,6 +4,11 @@ Change Log
 (*[semantic versioning](https://semver.org/) [ambitioned](http://www.dictionary.com/browse/ambitioned)
 for releases but not guaranteed...)*
 
+2.0.0
+-----
+
+- Added setting `uncommentCurrentLinesBeforeIgnoringTheRest`.  (not quite a *breaking* change, but whatever...)
+
 1.1.0
 -----
 
